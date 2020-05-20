@@ -69,15 +69,7 @@ function pausePlay() {
   }
 }
 
-function nextPause() {
-  if (buttonIsPause) {
-  clearInterval(interval);
-  document.getElementsByClassName("pause-play-button")[0].innerHTML = "&#9658;";
-  buttonIsPause = false;
-  }
-}
-
-function prevPause() {
+function pause() {
   if (buttonIsPause) {
   clearInterval(interval);
   document.getElementsByClassName("pause-play-button")[0].innerHTML = "&#9658;";
@@ -89,9 +81,11 @@ document.onkeydown = function(e) {
   switch (e.keyCode) {
     case 37:
         previous();
+        pause();
         break;
     case 39:
         next();
+        pause();
         break;
     case 32:
         pausePlay();
